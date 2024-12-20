@@ -1,0 +1,219 @@
+:root {
+
+    --color-neutral-100: hsl(0, 0%, 100%);
+    --color-neutral-300: hsl(252, 6%, 83%);
+    --color-neutral-500: hsl(245, 15%, 58%);
+    --color-neutral-700: hsl(245, 19%, 35%);
+    --color-neutral-900: hsl(248, 70%, 10%);
+    --color-orange-500: hsl(7, 88%, 67%);
+    --color-orange-700: hsl(7, 71%, 60%);
+    --color-gradient-text: hsl(7, 86%, 67%) to hsl(0, 0%, 100%);
+}
+
+
+.container {
+    width: 90%;
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+button,input[type="submit"] {
+    background-color: var(--color-orange-500);
+    border: none;
+    color: var(--color-neutral-900);
+    font-size: 1.125rem;
+    font-family: inherit;
+    display: block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 3.5rem;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+input[type="submit"]:hover{
+    background-color: var(--color-orange-700);
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    src: url('../assets/fonts/Inconsolata-VariableFont_wdth\,wght.ttf');
+    font-weight: 700;
+}
+
+body{
+    background-image: url(../assets/images/background-desktop.png);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    font-family: 'Inconsolata', monospace;
+    color: var(--color-neutral-100);
+}
+
+body::before{
+    content: '';
+    position: fixed;
+    z-index: -1;
+    inset: 0;
+    background-image: url('../assets/images/pattern-lines.svg');
+
+}
+
+.arco::after,.arco::before{
+
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-repeat: no-repeat;
+    z-index: -10;
+}
+
+.arco::after{
+    background-position: left 120%;
+    background-image: url('../assets/images/pattern-squiggly-line-bottom.svg');
+}
+.arco::before{
+    background-position: right top;
+    background-image: url('../assets/images/pattern-squiggly-line-top.svg');
+}   
+
+.header{
+    padding: 3em 0;
+
+}
+.header__logo{
+    display: block;
+    width: max-content;
+    margin: 0 auto;
+}
+
+.main__description,.main__title{
+    text-align: center;
+}
+.main__title{
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+
+.main__description{
+    font-size: 1.25rem;
+    color: var(--color-neutral-500);
+}
+.form{
+    display: grid;
+    gap: 1.5rem;
+    max-width: 500px;
+    margin: 3rem auto 0; 
+}
+
+.form__input,.form__upload{
+    font-family: 'Inconsolata', monospace;
+    border: 1px solid var(--color-neutral-700);
+    border-radius: 12px;
+    padding: 0 .875rem; 
+    color: var(--color-neutral-300);
+    width: 100%;
+    background-color: hsla(245, 19%, 35%, 0.13);
+    height: 3.5rem;
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+:is(.form__input,.form__upload):hover{
+    background-color: hsla(245, 19%, 35%, 0.31);
+}
+
+.form__input.error{
+    border-color: var(--color-orange-700);
+}
+
+.form__upload{
+    height: auto;
+    text-align: center;
+    padding: .875rem;
+    border-style: dashed;
+    color: var(--color-neutral-500);
+}
+
+.form__upload-avatar{
+    width: 3.25rem;
+    height: 3.25rem;
+    overflow: hidden;
+    border-radius: 12px;
+    margin: 0 auto 1rem;
+    border: 2px solid hsla(245, 19%, 35%, 0.274);
+    position: relative;
+}
+
+.form__upload-icon{
+    background-color: hsla(245, 19%, 35%, 0.295)/*hsla(245, 19%, 35%, 0.13)*/;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inset: 0;
+}
+
+.form__upload-image{
+    position: absolute;
+    inset: 0;
+}
+
+.form__upload-image img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.form__upload-icon.hidden{
+    display: none;
+}
+
+.form__upload-alert{
+    margin-top: .5rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.form__upload-message{
+    color: var(--color-neutral-500);
+   
+}
+.form__label{
+    display: inline-block;
+    margin-bottom: .75rem;
+    color: var(--color-neutral-300);
+}
+.form__error{
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    color: var(--color-orange-700);
+    margin-top: .375rem;
+    display: none;
+}
+
+.form__error svg path{
+    stroke: var(--color-orange-700);
+}
+
+.form__error.error{
+    display: flex;
+}
